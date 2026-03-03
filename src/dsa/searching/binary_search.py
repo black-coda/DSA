@@ -69,12 +69,35 @@ def find_last(input: List[int], item: int) -> int:
         else:
             left = mid + 1
     return result
+    
+
+# Given a sorted array and a target, return the index 
+# where target would be inserted to keep array sorted
+
+def search_insert(input: List[int], target: int):
+    left, right = 0, len(input) - 1
+    
+    while left <= right:
+        
+        mid = (left + right) // 2
+        if input[mid] == target:
+            return mid
+        elif input[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+     
+    return left
+    
+
+
 
 
 if __name__ == "__main__":
-    arr = [1, 2, 2, 2, 2, 3, 4, 5]
-    print(find_first(arr, 2))  # Output: 1 (first index of 2)
-    arr = sorted(arr)
-    index = binary_search_with_recursion(arr, 9, 0, len(arr) - 1)
-    print(f"index: {index}")
-    print(arr[index])
+    # arr = [1, 2, 2, 2, 2, 3, 4, 5]
+    # print(find_first(arr, 2))  # Output: 1 (first index of 2)
+    # arr = sorted(arr)
+    # index = binary_search_with_recursion(arr, 9, 0, len(arr) - 1)
+    # print(f"index: {index}")
+    # print(arr[index])
+    print(search_insert([1, 3, 5, 6], 2))

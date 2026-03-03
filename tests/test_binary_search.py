@@ -1,4 +1,9 @@
-from dsa.searching.binary_search import binary_search, find_first, find_last
+from dsa.searching.binary_search import (
+    binary_search,
+    find_first,
+    find_last,
+    search_insert,
+)
 
 
 def test_binary_search():
@@ -21,3 +26,10 @@ def test_find_last():
     assert find_last(arr, 1) == 0
     assert find_last(arr, 5) == 7
     assert find_last(arr, 6) == -1
+
+
+def test_search_insert():
+    assert search_insert([1, 3, 5, 6], 5) == 2
+    assert search_insert([1, 3, 5, 6], 2) == 1
+    assert search_insert([1, 3, 5, 6], 7) == 4
+    assert search_insert([1, 3, 5, 6], 0) == 0
