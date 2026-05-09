@@ -51,7 +51,8 @@ class LinkedList:
             return
      
         current_head = self.head
-        while current_head.next and current.next != self.tail:  # noqa: F821
+        while current_head.next and current_head.next != self.tail:
+            # loops until it gets to the node before the tail
             current_head = current_head.next
         current_head.next = None
         self.tail = current_head
@@ -64,5 +65,7 @@ if __name__ == "__main__":
     ll.insert_at_end(94)
     ll.insert_at_end(3)
     ll.insert_at_end(9)
+    # ll.print_list()
+    ll.delete_from_end()
     ll.print_list()
     print(ll.tail==ll.head)
